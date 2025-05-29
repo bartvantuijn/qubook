@@ -1,0 +1,8 @@
+*.log
+.DS_Store
+/.fleet
+/.idea
+/.nova
+/.phpunit.cache
+/.vscode
+/.zed
