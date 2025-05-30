@@ -16,7 +16,6 @@ class AuthProvider {
       );
 
       final data = jsonDecode(response.body);
-      print(data);
 
       if (data['status'] == true) {
         return data['token'];

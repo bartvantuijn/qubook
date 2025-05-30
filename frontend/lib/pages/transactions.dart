@@ -1,23 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:qubook/widgets/navigation.dart';
 
-class TransactionsPage extends StatelessWidget {
+class TransactionsPage extends StatefulWidget {
   const TransactionsPage({super.key});
 
   @override
+  State<TransactionsPage> createState() => _TransactionsPageState();
+}
+
+class _TransactionsPageState extends State<TransactionsPage> {
+
+  @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      padding: const EdgeInsets.all(16),
-      itemCount: 10,
-      itemBuilder: (context, index) {
-        return Card(
-          margin: const EdgeInsets.only(bottom: 12),
-          child: ListTile(
-            title: Text("Transaction ${index + 1}"),
-            subtitle: Text("Category: Diverse"),
-            trailing: Text("- €${(index + 1) * 3.5}", style: const TextStyle(color: Colors.red)),
-          ),
-        );
-      },
-    );
+    return Center(child: Text("Transactions here"));
   }
 }

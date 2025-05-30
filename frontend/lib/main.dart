@@ -1,21 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:qubook/pages/splash.dart';
 import 'package:qubook/styles/theme.dart';
+import 'package:qubook/utilities/notifiers.dart';
 
-void main() => runApp(const Qubook());
+void main() {
+  runApp(const QubookApp());
+}
 
-class Qubook extends StatelessWidget {
-  const Qubook({super.key});
+class QubookApp extends StatelessWidget {
+  const QubookApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Qubook',
-      theme: AppTheme.light,
-      darkTheme: AppTheme.dark,
-      themeMode: ThemeMode.system,
-      debugShowCheckedModeBanner: false,
-      home: const SplashPage(),
-    );
+    return ValueListenableBuilder(valueListenable: themeNotifier, builder: (context, value, child) {
+      return MaterialApp(
+        title: 'Qubook',
+        theme: AppTheme.light,
+        darkTheme: AppTheme.dark,
+        themeMode: themeNotifier.value,
+        debugShowCheckedModeBanner: false,
+        home: const SplashPage()
+      );
+    });
   }
 }

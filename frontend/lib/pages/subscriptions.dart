@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:qubook/widgets/navigation.dart';
 
-class SubscriptionsPage extends StatelessWidget {
+class SubscriptionsPage extends StatefulWidget {
   const SubscriptionsPage({super.key});
 
   @override
+  State<SubscriptionsPage> createState() => _SubscriptionsPageState();
+}
+
+class _SubscriptionsPageState extends State<SubscriptionsPage> {
+
+  @override
   Widget build(BuildContext context) {
-    return const Center(child: Text("Subscriptions here"));
+    return Center(child: Text("Subscriptions here"));
   }
 }

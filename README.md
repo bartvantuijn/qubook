@@ -29,20 +29,28 @@ flutter run
 
 ```
 lib/
+├── main.dart
 ├── pages/
+│   └── settings/
+│       ├── theme.dart
+│   ├── accounts.dart
+│   ├── home.dart
 │   ├── login.dart
 │   ├── overview.dart
-│   ├── transactions.dart
-│   ├── subscriptions.dart
+│   ├── settings.dart
+│   ├── splash.dart
 │   ├── statistics.dart
-│   └── settings.dart
+│   ├── subscriptions.dart
+│   ├── transactions.dart
 ├── styles/
+│   ├── text.dart
 │   └── theme.dart
+├── utilities/
+│   └── notifiers.dart
 ├── widgets/
+│   ├── bar.dart
+│   ├── gradient.dart
 │   └── navigation.dart
-├── providers/
-│   └── auth.dart
-└── main.dart
 ```
 
 ---
@@ -60,9 +68,9 @@ This project is under active development. Contributions are welcome.
 
 ## Screenshots
 
-![Screenshot](screenshots/qubook-login-light.png)
+![Screenshot](screenshots/qubook-login.png)
 
-![Screenshot](screenshots/qubook-login-dark.png)
+![Screenshot](screenshots/qubook-overview.png)
 
 [flutter]: https://flutter.dev/
 [laravel]: https://laravel.com

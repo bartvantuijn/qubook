@@ -1,5 +1,5 @@
 # To-do
 
-- [ ] Refactor project structure
-- [ ] Branding
+- [ ] Add branding
+- [ ] Translations
 - [ ] Add accounts functionality

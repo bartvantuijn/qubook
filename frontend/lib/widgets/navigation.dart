@@ -1,59 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:qubook/pages/overview.dart';
-import 'package:qubook/pages/statistics.dart';
-import 'package:qubook/pages/transactions.dart';
-import 'package:qubook/pages/subscriptions.dart';
-import 'package:qubook/pages/settings.dart';
+import 'package:qubook/utilities/notifiers.dart';
 
-class NavigationContainer extends StatefulWidget {
-  const NavigationContainer({super.key});
-
-  @override
-  State<NavigationContainer> createState() => _NavigationContainerState();
-}
-
-class _NavigationContainerState extends State<NavigationContainer> {
-  int _currentIndex = 0;
-
-  final List<Widget> _pages = const [
-    OverviewPage(),
-    TransactionsPage(),
-    StatisticsPage(),
-    SubscriptionsPage(),
-    SettingsPage(),
-  ];
-
-  final List<String> _titles = const [
-    'Overview',
-    'Transactions',
-    'Statistics',
-    'Subscriptions',
-    'Settings',
-  ];
+class NavigationWidget extends StatelessWidget {
+  const NavigationWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(_titles[_currentIndex]),
-        centerTitle: true,
-      ),
-      body: _pages[_currentIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _currentIndex,
-        onTap: (index) {
-          setState(() {
-            _currentIndex = index;
-          });
+    return ValueListenableBuilder(valueListenable: navigationNotifier, builder: (context, value, child) {
+      return NavigationBar(
+        selectedIndex: value,
+        onDestinationSelected: (value) {
+          navigationNotifier.value = value;
         },
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Overview'),
-          BottomNavigationBarItem(icon: Icon(Icons.swap_horiz), label: 'Transactions'),
-          BottomNavigationBarItem(icon: Icon(Icons.bar_chart), label: 'Statistics'),
-          BottomNavigationBarItem(icon: Icon(Icons.repeat), label: 'Subscriptions'),
-          BottomNavigationBarItem(icon: Icon(Icons.settings), label: 'Settings'),
+        destinations: const [
+          NavigationDestination(icon: Icon(Icons.home), label: 'Overview'),
+          NavigationDestination(icon: Icon(Icons.account_balance), label: 'Accounts'),
+          NavigationDestination(icon: Icon(Icons.list), label: 'Transactions'),
+          NavigationDestination(icon: Icon(Icons.bar_chart), label: 'Statistics'),
+          NavigationDestination(icon: Icon(Icons.subscriptions), label: 'Subscriptions'),
         ],
-      ),
-    );
+      );
+    });
   }
 }
